@@ -78,7 +78,7 @@ class Tours(commands.Cog):
           embed.add_field(name=f"{col_name[i]}", value=f"**{j}**")
     file = discord.File('logo.png')
     embed.set_thumbnail(url="attachment://logo.png")
-    embed.set_footer(text="Created & Managed by **ECOW**")
+    embed.set_footer(text="Created & Managed by **CEA**")
     await ctx.send(embed=embed)
 
 
