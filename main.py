@@ -32,7 +32,7 @@ def run():
     activity = discord.Game(name="Hand-Crafted by R")
     await bot.change_presence(status=discord.Status.idle, activity=activity)
 
-  bot.run(token=os.environ['token'])
+  bot.run(token=os.environ.get('token'))
 
 
 if __name__ == "__main__":
