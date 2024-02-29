@@ -34,6 +34,24 @@ class Tours(commands.Cog):
     print(self.playing_teams)
     await ctx.send("Data Refreshed ! ")
 
+  @commands.hybrid_command(name="member_info",description="returns players discord id")
+  async def member_info(self,ctx,member:discord.Member=None):
+        if member == None:
+          embed = discord.Embed(title=f"**{ctx.guild.name}**",description="member info",colour = discord.Colour.gold())
+          embed.add_field(name="``Member      :``",value = f"{ctx.author.mention}",inline=True)
+          embed.add_field(name="``Discord tag :``",value = f"**{ctx.author.name}**",inline=True)
+          embed.add_field(name="``Discord Id  :``",value = f"**{ctx.author.id}**",inline=True)
+          embed.set_footer(text="Created and managed by CEA")
+          await ctx.send(f"{ctx.author.mention} ID : {ctx.author.id}",embed=embed)
+        else:
+          embed = discord.Embed(title=f"**{ctx.guild.name}**",description="member info",colour = discord.Colour.gold())
+          embed.add_field(name="``Member      :``",value = f"{member.mention}",inline=True)
+          embed.add_field(name="``Discord tag :``",value = f"**{member.name}**",inline=True)
+          embed.add_field(name="``Discord Id  :``",value = f"**{member.id}**",inline=True)
+          embed.set_footer(text="Created and managed by CEA")
+          await ctx.send(f"{member.mention} ID : {member.id}",embed=embed)
+          
+  
   @commands.command()
   async def syncs(self, ctx):
     self.bot.tree.copy_global_to(guild=ctx.guild)
